@@ -1,0 +1,21 @@
+apiVersion: v1
+
+kind: Pod
+metadata:
+  name: sbrit004-plt-fib-interactive-pod 
+spec:
+  containers:
+  - name: gpu-container
+    image: sambritton/cuda-10.1-base-fibrin-platelet
+    command: ["sleep", "infinity"]
+    volumeMounts:
+    - mountPath: /sbrit004-platelet-fibrin
+      name: sbrit004-platelet-fibrin
+    resources:
+      limits:
+        nvidia.com/gpu: 1
+  volumes:
+  - name: sbrit004-platelet-fibrin
+    persistentVolumeClaim:
+      claimName: sbrit004-platelet-fibrin
+

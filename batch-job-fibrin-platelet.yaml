@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: sbrit004-fibrin-platelet
+spec:
+  template:
+    spec:
+      containers:
+      - name: sbrit004-platelet-fibrin
+        image: sambritton/cuda-10.1-base-fibrin-platelet
+        command:
+        - "bend-model"
+        args:
+        - ""
+        resources:
+          limits:
+            nvidia.com/gpu: 1
+      restartPolicy: Never
+  backoffLimit: 5
+

@@ -1,0 +1,13 @@
+apiVersion: v1
+
+kind: PersistentVolumeClaim
+metadata:
+  name: sbrit004-platelet-fibrin
+spec:
+  storageClassName: rook-block
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 300Gi
+
